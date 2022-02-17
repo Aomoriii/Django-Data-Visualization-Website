@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'analyse/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Google fonts - Popppins for copy-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,800" rel="stylesheet">
+    <!-- orion icons-->
+    <link rel="stylesheet" href="{% static 'analyse/css/orionicons.css' %}">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{% static 'analyse/css/style.default.css' %}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{% static 'analyse/css/custom.css' %}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'analyse/img/favicon.png?3' %}">
+{#    <!-- Tweaks for older IEs--><!--[if lt IE 9]>#}
+{#        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>#}
+{#        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->#}
+      {% block header %}
+      {% endblock header %}
+  <style>
+      .sidebar-link{
+          padding: 0.8rem 1.5rem;
+      }
+  </style>
+
+  </head>
+
+  <body>
+    <!-- navbar-->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="index.html" class="navbar-brand font-weight-bold text-uppercase text-base"></a>
+      </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+      <div id="sidebar" class="sidebar py-3">
+        <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
+        <ul class="sidebar-menu list-unstyled">
+              <li class="sidebar-list-item"><a href="/" class="sidebar-link text-muted "><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a></li>
+              <li class="sidebar-list-item"><a href="{% url 'analyse:tables' %}" class="sidebar-link text-muted"><i class="fas fa-file-alt mr-3 text-gray"></i><span>Tables</span></a></li>
+            <li class="sidebar-list-item"><a href="{% url 'analyse:company' %}" class="sidebar-link text-muted"><i class="fas fa-chart-bar mr-3 text-gray"></i><span>Chart</span></a></li>
+            <li class="sidebar-list-item"><a href="{% url 'analyse:welfare' %}" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>WorldCloud</span></a></li>
+
+
+
+
+            <li class="sidebar-list-item"><a  data-toggle="collapse" data-target="#basic" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Basic</span></a>
+                <div id="basic" class="collapse">
+                  <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item"><a href="{% url 'analyse:salary' %}" class="sidebar-link text-muted pl-lg-5">Salary—chart</a></li>
+                    <li class="sidebar-list-item"><a href="{% url 'analyse:degree' %}" class="sidebar-link text-muted pl-lg-5">Degree-chart</a></li>
+
+                  </ul>
+                </div>
+            </li>
+
+        </ul>
+        <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">LEARN STH</div>
+        <ul class="sidebar-menu list-unstyled">
+              <li class="sidebar-list-item"><a href="{% url 'analyse:learning' %}" class="sidebar-link text-muted"><i class="fas fa-book mr-3 text-gray"></i><span>Learning</span></a></li>
+              <li class="sidebar-list-item"><a href="{% url 'analyse:resource' %}" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Recommend</span></a></li>
+        </ul>
+          <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">OTHER</div>
+        <ul class="sidebar-menu list-unstyled">
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>About me</span></a></li>
+
+        </ul>
+
+
+      </div>
+
+
+      <div class="page-holder w-100 d-flex flex-wrap">
+          {% block container %}
+          {% endblock container %}
+
+        <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 text-center text-md-left text-primary">
+                <p class="mb-2 mb-md-0"></p>
+              </div>
+              <div class="col-md-6 text-center text-md-right text-gray-400"></div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+
+    <!--JavaScript files-->
+<script src="{% static 'analyse/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/chart.js/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/popper.js/umd/popper.min.js' %}"> </script>
+    <script src="{% static 'analyse/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/jquery.cookie/jquery.cookie.js' %}"> </script>
+    <script src="{% static 'analyse/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'analyse/js/js.cookie.min.js' %}"></script>
+    <script src="{% static 'analyse/js/charts-home.js' %}"></script>
+    <script src="{% static 'analyse/js/front.js' %}"></script>
+  {% block js %}
+  {% endblock js %}
+  </body>
+</html>

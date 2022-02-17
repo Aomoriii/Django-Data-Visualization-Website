@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block container %}
+    <div class="container-fluid px-xl-5">
+    <style>
+        .container-fluid.px-xl-5  {
+            background-image:url("{% static 'analyse/img/1.png' %}");
+            background-repeat: no-repeat;
+            background-position: bottom;
+            height: 800px;
+        }
+    </style>
+
+
+
+        </div>
+
+{% endblock container %}
+
+{% block js %}
+<script src="{% static 'analyse/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/chart.js/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/popper.js/umd/popper.min.js' %}"> </script>
+    <script src="{% static 'analyse/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/jquery.cookie/jquery.cookie.js' %}"> </script>
+    <script src="{% static 'analyse/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'analyse/js/js.cookie.min.js' %}"></script>
+    <script src="{% static 'analyse/js/charts-home.js' %}"></script>
+    <script src="{% static 'analyse/js/front.js' %}"></script>
+{% endblock js %}

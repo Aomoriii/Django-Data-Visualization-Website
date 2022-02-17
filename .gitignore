@@ -1,0 +1,9 @@
+.idea
+
+analyse/__init__.py
+
+migrations
+
+recruit/__init__.py
+
+settings.py

@@ -1,0 +1,431 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{#{% block header %}#}
+{##}
+{#    <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>#}
+{#        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>#}
+{#        <script src="https://cdn.highcharts.com.cn/highcharts/modules/series-label.js"></script>#}
+{#        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>#}
+{#        <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>#}
+{##}
+{#        <script src="{% static 'analyse/vendor/chart.js/Chart.min.js' %}"></script>#}
+{#    <script src="{% static 'analyse/js/js.cookie.min.js' %}"></script>#}
+{#    <script src="{% static 'analyse/js/charts-home.js' %}"></script>#}
+{#    <script src="{% static 'analyse/js/front.js' %}"></script>#}
+{##}
+{#{% endblock header %}#}
+{% block header %}
+<style xmlns="http://www.w3.org/1999/html">
+            #container {
+                min-width: 310px;
+                max-width: 800px;
+                height: 500px;
+                margin: 0 auto;
+            }
+
+
+        </style>
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts-more.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/series-label.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+        <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+        <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/venn.js"></script>
+
+    <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+
+
+{% endblock header %}
+
+
+{% block container %}
+    <div class="container-fluid px-xl-5">
+        <section class="py-5">
+            <div class="row mb-4">
+              <div class="col-lg-7 mb-4 mb-lg-0">
+                <div class="card">
+                  <div class="card-header">
+                    <h2 class="h6 text-uppercase mb-0"></h2>
+                  </div>
+                  <div class="card-body">
+
+                    <div class="chart-holder">
+{#                      <canvas id="lineChart1" style="max-height: 14rem !important;" class="w-100"></canvas>#}
+                        <div id="container7" style="max-width:800px;height:400px"></div>
+                            <script>
+                                // JS 代码
+                           var chart = Highcharts.chart('container7', {
+                                chart: {
+                                    type: 'column'
+                                },
+                                title: {
+                                    text: 'IT行业薪资情况'
+                                },
+                                subtitle: {
+                                    text: ''
+                                },
+                                xAxis: {
+                                    type: 'category',
+                                    labels: {
+                                        rotation: -45
+                                    }
+                                },
+                                yAxis: {
+                                    min: 0,
+                                    title: {
+                                        text: '数量'
+                                    }
+                                },
+                                legend: {
+                                    enabled: false
+                                },
+                                tooltip: {
+                                    //pointFormat: ' <b>{point.y:.d} </b>'
+                                },
+                                series: [{
+                                    name: '',
+                                    data: [
+                                        ['2k', {{ sa1 }}],
+                                        ['3k', {{ sa2 }}],
+                                        ['4k', {{ sa3 }}],
+                                        ['5k', {{ sa4 }}],
+                                        ['6k', {{ sa5 }}],
+                                        ['7k',{{ sa6 }}],
+                                        ['8k', {{ sa7 }}],
+                                        ['9k', {{ sa8 }}],
+                                        ['10k', {{ sa9 }}],
+                                        ['11k', {{ sa10 }}],
+                                        ['12k', {{ sa11 }}],
+                                        ['13k', {{ sa12 }}],
+                                        ['14k', {{ sa13 }}],
+                                        ['15k', {{ sa14 }}],
+                                        ['16k', {{ sa15 }}]
+
+                                    ],
+                                    dataLabels: {
+                                        enabled: true,
+                                        rotation: -90,
+                                        color: '#FFFFFF',
+                                        align: 'right',
+                                        //format: '{point.y:.d}', // :.1f 为保留 1 位小数
+                                        y: 10
+                                    }
+                                }]
+                            });
+                            </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 mb-4 mb-lg-0 pl-lg-0">
+                <div class="card mb-3">
+                    <div class="card-header">
+                    <h2 class="h6 text-uppercase mb-0"></h2>
+                  </div>
+                  <div class="card-body">
+                    <div class="row align-items-center flex-row">
+{#                      <div class="col-lg-5">#}
+{#                        <h2 class="mb-0 d-flex align-items-center"><span>86.4</span><span class="dot bg-green d-inline-block ml-3"></span></h2><span class="text-muted text-uppercase small">Work hours</span>#}
+{#                        <hr><small class="text-muted">Lorem ipsum dolor sit</small>#}
+{#                      </div>#}
+                      <div class="col-lg-12">
+{#                        <canvas id="pieChartHome1"></canvas>#}
+                          <div id="container" style="max-width:800px;height:400px"></div>
+                            <script>
+                                // JS 代码
+                                var chart = Highcharts.chart('container', {
+                                    chart: {
+                                            type: 'column'
+                                    },
+                                    title: {
+                                            text: '热门语言与薪资的关系'
+                                    },
+                                    subtitle: {
+                                            text: ''
+                                    },
+                                    legend: {
+                                            align: 'right',
+                                            verticalAlign: 'middle',
+                                            layout: 'vertical'
+                                    },
+                                    xAxis: {
+                                            categories: ['2-6k', '7-11k', '12-15k'],
+                                            labels: {
+                                                    x: -10
+                                            }
+                                    },
+                                    yAxis: {
+                                            allowDecimals: false,
+                                            title: {
+                                                    text: '数额'
+                                            }
+                                    },
+                                    series: [{
+                                            name: 'Java',
+                                            data: [{{ java1 }}, {{ java2 }}, {{ java3 }}]
+                                    }, {
+                                            name: 'Python',
+                                            data: [{{ py1 }}, {{ py2 }}, {{ py3 }}]
+                                    }, {
+                                            name: 'PHP',
+                                            data: [{{ php1 }}, {{ php2 }}, {{ php3 }}]
+                                    }],
+                                    responsive: {
+                                            rules: [{
+                                                    condition: {
+                                                            maxWidth: 500
+                                                    },
+                                                    chartOptions: {
+                                                            legend: {
+                                                                    align: 'center',
+                                                                    verticalAlign: 'bottom',
+                                                                    layout: 'horizontal'
+                                                            },
+                                                            yAxis: {
+                                                                    labels: {
+                                                                            align: 'left',
+                                                                            x: 0,
+                                                                            y: -5
+                                                                    },
+                                                                    title: {
+                                                                            text: null
+                                                                    }
+                                                            },
+                                                            subtitle: {
+                                                                    text: null
+                                                            },
+                                                            credits: {
+                                                                    enabled: false
+                                                            }
+                                                    }
+                                            }]
+                                    }
+                            });
+                            function setSize(width) {
+                                    chart.setSize(width, 300);
+                            }</script>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-5 mb-4 mb-lg-0">
+                <div class="card mb-3">
+                    <div class="card-header">
+                    <h2 class="h6 text-uppercase mb-0"></h2>
+                  </div>
+                  <div class="card-body">
+                    <div class="row align-items-center mb-3 flex-row">
+
+                      <div class="col-lg-12">
+                        <div id="container3" ></div>
+        <script>
+            // JS 代码
+            var chart1 = Highcharts.chart('container3', {
+
+                chart: {
+                    spacing : [40, 0 , 40, 0]
+                },
+                title: {
+                    floating:true,
+                    text: '各区平均薪资'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}k</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            {#format: '<b>{point.name}</b>: {point.percentage:.1f} k',#}
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        },
+                        point: {
+                            events: {
+                                mouseOver: function(e) {  // 鼠标滑过时动态更新标题
+                                    // 标题更新函数，API 地址：https://api.hcharts.cn/highcharts#Chart.setTitle
+                                    chart1.setTitle({
+                                        text: e.target.name+ '\t'+ e.target.y + ' k'
+                                    }
+                                    );
+                                }
+                                //,
+                                // click: function(e) { // 同样的可以在点击事件里处理
+                                //     chart.setTitle({
+                                //         text: e.point.name+ '\t'+ e.point.y + ' %'
+                                //     });
+                                // }
+                            }
+                        },
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    innerSize: '80%',
+                    name: '平均薪资',
+                    data: [
+                        {name:'天河区',   y: {{ a1 }},},
+                        ['番禺区',       {{ a2 }}],
+                        {
+                            name: '白云区',
+                            y: {{ a3 }},
+
+                        },
+                        ['黄浦区',    {{ a4 }}],
+                        ['花都区',     {{ a5 }}],
+                        {#['从化区',   {{ a6 }}],#}
+                        ['增城区',     {{ a7 }}],
+                        ['海珠区',     {{ a8 }}],
+                        ['越秀区',     {{ a9 }}],
+                        ['荔湾区',     {{ a10 }}],
+                        ['南沙区',    {{ a11 }}]
+                    ]
+                }]
+            }, function(c) { // 图表初始化完毕后的会掉函数
+                // 环形图圆心
+                var centerY = c.series[0].center[1],
+                    titleHeight = parseInt(c.title.styles.fontSize);
+                // 动态设置标题位置
+                c.setTitle({
+                    y:centerY + titleHeight/2
+                });
+            });
+        </script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="col-lg-7">
+                <div class="card">
+                  <div class="card-header">
+                    <h2 class="h6 text-uppercase mb-0"></h2>
+                  </div>
+                  <div class="card-body">
+                    <
+                    <div class="chart-holder">
+                      <div id="container4"></div>
+        <script>
+            // JS 代码
+            var chart = Highcharts.chart('container4', {
+                                title: {
+                                        text: '企业类型与薪资情况'
+                                },
+                                yAxis: {
+                                        title: {
+                                                text: ''
+                                        }
+                                },
+
+
+                                xAxis: {
+                                        title: {
+                                                text: '单位 千'
+                                        }
+                                },
+                                legend: {
+                                        layout: 'vertical',
+                                        align: 'right',
+                                        verticalAlign: 'middle'
+                                },
+                                plotOptions: {
+                                        series: {
+                                                label: {
+                                                        connectorAllowed: false
+                                                },
+                                                pointStart: 5
+                                        }
+                                },
+                                series: [{
+                                        name: '民营公司',
+                                        {#data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]#}
+                                        data:[ {{ p1 }}, {{ p2 }}, {{ p3 }},{{ p4 }}]
+                                },{
+                                        name: '上市公司',
+                                        data: [{{ l1 }},{{ l2 }},{{ l3 }},{{ l4 }}]
+                                },{
+                                        name: '国企公司',
+                                        data: [{{ s1 }},{{ s2 }},{{ s3 }},{{ s4 }}]
+                                },{
+                                        name: '合资公司',
+                                        data: [{{ j1 }},{{ j2 }},{{ j3 }},{{ j4 }}]
+                                },
+                                    {
+                                        name: '外商独资公司',
+                                        data: [{{ f1 }},{{ f2 }},{{ f3 }},{{ f4 }}]
+                                },
+                                    {
+                                        name: '股份制企业',
+                                        data: [{{ sh1 }},{{ sh2 }},{{ sh3 }},{{ sh4 }}]
+                                },
+                                    {
+                                        name: '港澳台公司',
+                                        data: [{{ hmt1 }},{{ hmt2 }},{{ hmt3 }},{{ hmt4 }}]
+                                }
+
+                                ],
+                                responsive: {
+                                        rules: [{
+                                                condition: {
+                                                        maxWidth: 500
+                                                },
+                                                chartOptions: {
+                                                        legend: {
+                                                                layout: 'horizontal',
+                                                                align: 'center',
+                                                                verticalAlign: 'bottom'
+                                                        }
+                                                }
+                                        }]
+                                }
+                        });
+        </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+
+        </div>
+
+{% endblock container %}

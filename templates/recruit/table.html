@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block container %}
+
+<style>
+.btn-secondary {
+    background-color: #4680ff;;
+    border-color: #17a2b8;
+}
+.btn {
+    border-top-left-radius: 0;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 0;
+
+}
+
+.table td, .table th {
+    padding: .15rem;
+
+}
+
+.pt-5, .py-5 {
+    padding-top: 1rem!important;
+
+}
+.pb-5, .py-5 {
+    padding-bottom: 1rem!important;
+}
+
+</style>
+
+    <div class="page-holder w-100 d-flex flex-wrap">
+
+
+        <div class="container-fluid px-xl-5">
+        <section class="py-5">
+            <form class="form-inline my-2 my-lg-0" role="search" method="get" action="{% url 'analyse:search' %}" target="_blank">
+                {% csrf_token %}
+                <div class="input-group">
+                <input type="search" class="form-control" name="q" placeholder="search" required>
+                <span class="input-group-btn">
+                <button type="submit" class="btn btn-secondary">click</button>
+                </span>
+                </div>
+            </form>
+        </section>
+
+
+          <section class="py-5">
+
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h6 class="text-uppercase mb-0">Basic Table</h6>
+                  </div>
+                  <div class="card-body">
+                    <table class="table card-text">
+
+
+                      <thead>
+                        <tr>
+                          <th>岗位</th>
+                          <th>薪资</th>
+                          <th>区域</th>
+                          <th>经验</th>
+                          <th>学历</th>
+                          <th>规模</th>
+                          <th>公司</th>
+                          <th>发布时间</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for item in recruit_list %}
+                        <tr>
+                          <th scope="row">{{ item.Rwork }}</th>
+                             {% if item.Rsalary_l == 0  %}
+                                 <td>{{item.Rsalary_l}}</td>
+                             {% elif item.Rsalary_l == '面议' %}
+                                 <td>{{item.Rsalary_l}}</td>
+                             {% else %}
+                                 <td>{{item.Rsalary_l}}-{{ item.Rsalary_r }}</td>
+                             {% endif %}
+                          <td>{{ item.Cid_id.Cname}}</td>
+                             {% if item.Rex_l == '0' %}
+                                <td>{{ item.Rex_l}}</td>
+                            {% else %}
+                                <td>{{ item.Rex_l }}-{{ item.Rex_r }}年</td>
+                            {% endif %}
+                          <td>{{item.Rdegree}}</td>
+                          <td>{{ item.Rscale_l }}-{{ item.Rscale_r }}人</td>
+                          <td>{{ item.Rcompany }}</td>
+                          <td>{{ item.Rdate }}</td>
+
+                        </tr>
+                        {% endfor %}
+
+                      </tbody>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+          </section>
+          <!-- 分页-->
+          <nav class="pag" aria-label="..." >
+
+			  <ul class="pagination justify-content-center">
+
+                    {% if page_obj.has_previous %}
+                        <li class="page-item disabled">
+                        <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number.querystring }}" >Previous</a>
+                        </li>
+
+
+                    {% endif %}
+
+                    {% for page in page_obj.pages %}
+                        {% if page %}
+                            {% ifequal page page_object.number %}
+                               <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="#">{{ page }}</a>
+                               </li>
+                            {% else %}
+
+                               <li class="page-item"><a class="page-link" href="?{{ page.querystring }}">{{ page }}</a></li>
+                            {% endifequal %}
+                        {% else %}
+                        ...
+                        {% endif %}
+                    {% endfor %}
+
+
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                      <a class="page-link" href="?{{ page_obj.next_page_number.querystring }}">Next</a>
+                    </li>
+                    {% else %}
+
+                    {% endif %}
+
+			  </ul>
+			</nav>
+
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock container %}

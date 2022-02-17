@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+    <style>
+				.pt-5, .py-5 {
+				    padding-top: 12rem!important;
+
+				}
+                .dec{
+                    width: 160px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+                .image{
+                    border-radius:20px;
+
+                }
+                .link {
+                color: #1b1e21;
+                text-decoration: none;
+                }
+                .link:hover{
+                 text-decoration:none;  /*鼠标放上去有下划线*/
+                    color: #3d4246;
+                }
+
+
+
+
+    </style>
+
+
+{% endblock header %}
+
+
+{% block container %}
+
+    <div class="container-fluid px-xl-5">
+
+          <section class="py-5">
+
+            <div class="row">
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0" >
+
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between bg-hover-gradient-primary" >
+                  <div class="flex-grow-1 d-flex align-items-center">
+
+                    <div class="text">
+                      <h6 class="mb-0" ><a class="link" href="https://www.icourse163.org/"> 中国大学MOOC</a></h6><p class="dec">中国大学MOOC(慕课) 是国内优质的中文MOOC学习平台，由爱课程网携手网易云课堂打造。平台拥有包括985高校在内提供的千余门课程，其中首批获得认定的国家精品在线开放课程322门，占2017年获得认定课程总数的65.7%。每一个有提升愿望的人，都可以在这里学习优质高校课程，与名师零距离交流，并获得认证证书</p>
+                    </div>
+                  </div>
+                    <div class="icon text-white "><img class="image bg-hover-gradient-primary" src="{% static 'analyse/img/mooc.png' %}"></div>
+
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0" >
+
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between bg-hover-gradient-primary" >
+                  <div class="flex-grow-1 d-flex align-items-center">
+
+                    <div class="text">
+                      <h6 class="mb-0" ><a class="link" href="https://open.163.com/"> 网易公开课</a></h6><p class="dec">网易视频公开课频道推出国内外名校公开课,涉及广泛的学科,名校老师认真讲解深度剖析,网易视频公开课频道搭建起强有力的网络视频教学平台</p>
+                    </div>
+                  </div>
+                    <div class="icon text-white "><img class="image bg-hover-gradient-primary" src="{% static 'analyse/img/wy.png' %}"></div>
+
+                </div>
+              </div>
+                <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0" >
+
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between bg-hover-gradient-primary" >
+                  <div class="flex-grow-1 d-flex align-items-center">
+
+                    <div class="text">
+                      <h6 class="mb-0" ><a class="link" href="https://labs.oracle.com/pls/apex/labs/r/labs/intro"> Oracle Labs</a></h6><p class="dec">The Mission of Oracle Labs is straightforward: Identify, explore, and transfer new technologies that have the potential to substantially improve Oracle's business.</p>
+                    </div>
+                  </div>
+                    <div class="icon text-white "><img class="image bg-hover-gradient-primary" src="{% static 'analyse/img/Oracle.png' %}"></div>
+
+                </div>
+              </div>
+                <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0" >
+
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between bg-hover-gradient-primary" >
+                  <div class="flex-grow-1 d-flex align-items-center">
+
+                    <div class="text">
+                      <h6 class="mb-0" ><a class="link" href="https://www.xuetangx.com/"> 学堂在线</a></h6><p class="dec">学堂在线一直致力于打造内容与技术双引擎，推动教育资源共享与教育质量提升。</p>
+                    </div>
+                  </div>
+                    <div class="icon text-white "><img class="image bg-hover-gradient-primary" src="{% static 'analyse/img/xt.png' %}"></div>
+
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+
+		<section >
+          <div class="row">
+            <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0" >
+
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between bg-hover-gradient-primary" >
+                  <div class="flex-grow-1 d-flex align-items-center">
+
+                    <div class="text">
+                      <h6 class="mb-0" ><a class="link " href="https://www.w3cschool.cn/"> W3Cschool</a></h6><p class="dec">随时随地学编程</p>
+                    </div>
+                  </div>
+                    <div class="icon text-white "><img class="image bg-hover-gradient-primary" src="{% static 'analyse/img/w3c.png' %}"></div>
+
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0" >
+
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between bg-hover-gradient-primary" >
+                  <div class="flex-grow-1 d-flex align-items-center">
+
+                    <div class="text">
+                      <h6 class="mb-0" ><a class="link" href="https://www.nowcoder.com/"> 牛客网</a></h6><p class="dec">牛客网-找工作神器|笔试题库|面试经验|实习招聘内推，求职就业一站解决</p>
+                    </div>
+                  </div>
+                    <div class="icon text-white "><img class="image bg-hover-gradient-primary" src="{% static 'analyse/img/nk.png' %}"></div>
+
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0" >
+
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between bg-hover-gradient-primary" >
+                  <div class="flex-grow-1 d-flex align-items-center">
+
+                    <div class="text">
+                      <h6 class="mb-0" ><a class="link" href="https://www.icourses.cn/home/"> 爱课程</a></h6><p class="dec">“ 爱课程”网络是由高等教育出版社委托建立的高等教育课程资源共享平台，由教育部和财政部在“本科教学质量和质量的“十二五”规划期间”发起。 高校教学改革项目”。 承担国家精品公开课的建设，应用和管理。 自2011年11月9日开放以来，它先后推出了三个标志性成就：中国大学视频公开课程，中国大学资源共享课程和中文大学MOOC，受到了学员的广泛好评，并成为国际领导者和最具影响力的人物。 在中国一个强大的高等教育在线开放课程平台。</p>
+                    </div>
+                  </div>
+                    <div class="icon text-white "><img class="image bg-hover-gradient-primary" src="{% static 'analyse/img/akc.png' %}"></div>
+
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0" >
+
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between bg-hover-gradient-primary" >
+                  <div class="flex-grow-1 d-flex align-items-center">
+
+                    <div class="text">
+                      <h6 class="mb-0" ><a class="link" href="https://leetcode-cn.com/">LeetCode</a></h6><p class="dec">LeetCode是领扣网络旗下专注于程序员技术成长和企业技术人才服务的 源自美国硅谷，力扣为全球程序员提供了专业的IT技术职业化提升平台</p>
+                    </div>
+                  </div>
+                    <div class="icon text-white "><img class="image bg-hover-gradient-primary" src="{% static 'analyse/img/lc.png' %}"></div>
+
+                </div>
+              </div>
+          </div>
+        </section>
+
+
+
+        </div>
+
+{% endblock container %}

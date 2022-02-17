@@ -1,0 +1,372 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<style xmlns="http://www.w3.org/1999/html">
+            #container {
+                min-width: 310px;
+                max-width: 800px;
+                height: 400px;
+                margin: 0 auto;
+            }
+
+        </style>
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts-more.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/series-label.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+        <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+        <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/venn.js"></script>
+
+
+
+{% endblock header %}
+
+
+{% block container %}
+
+<div class="page-holder w-100 d-flex flex-wrap">
+        <div class="container-fluid px-xl-5">
+          <section class="py-5" id="c1">
+            <div class="row mb-4">
+              <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="card">
+                  <div class="card-header">
+                    <h2 class="h6 text-uppercase mb-0"></h2>
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-holder mt-5 mb-5">
+                      <div id="container"></div>
+                        <script>
+                            Highcharts.chart('container', {
+                            chart: {
+                                type: 'columnpyramid'
+                            },
+                            title: {
+                                text: '企业规模金字塔'
+                            },
+                            colors: ['#C79D6D', '#B5927B', '#CE9B84', '#B7A58C', '#C7A58C'],
+                            xAxis: {
+                                crosshair: true,
+                                labels: {
+                                    style: {
+                                        fontSize: '14px'
+                                    }
+                                },
+                                type: 'category',
+                                title: {
+                                    text: '人数规模'
+                                }
+                            },
+                            yAxis: {
+                                min: 0,
+                                title: {
+                                    text: '公司数量'
+                                }
+                            },
+                            tooltip: {
+                                valueSuffix: ' 人'
+                            },
+                            series: [{
+                                name: 'Height',
+                                colorByPoint: true,
+                                data: [
+                                    ['20-100人', {{ a }}],
+                                    ['100-500人', {{ b }}],
+                                    ['500-1000人', {{ c }}],
+                                    ['1000-1500人', {{ d }}],
+                                    ['1500人以上', {{ e }}]
+                                ],
+                                showInLegend: false
+                            }]
+                        });
+                        </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+
+              <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
+                  <div class="row">
+                    <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">1<sup class="smaller text-gray font-weight-normal">HOT</sup></strong>
+
+                    </div>
+                    <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
+                      <div class="bg-gray-100 roundy px-4 py-1 mr-0 mr-lg-3 mt-2 mt-lg-0 text-dark exclode">大数据开发</div>
+
+                    </div>
+                  </div></a></div>
+                   <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
+                  <div class="row">
+                    <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">2<sup class="smaller text-gray font-weight-normal">HOT</sup></strong>
+
+                    </div>
+                    <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
+                      <div class="bg-gray-100 roundy px-4 py-1 mr-0 mr-lg-3 mt-2 mt-lg-0 text-dark exclode">Web前端开发</div>
+
+                    </div>
+                  </div></a></div>
+              <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
+                  <div class="row">
+                    <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">3<sup class="smaller text-gray font-weight-normal">HOT</sup></strong>
+
+                    </div>
+                    <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
+                      <div class="bg-gray-100 roundy px-4 py-1 mr-0 mr-lg-3 mt-2 mt-lg-0 text-dark exclode">人工智能</div>
+
+                    </div>
+                  </div></a></div>
+              <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
+                  <div class="row">
+                    <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">4<sup class="smaller text-gray font-weight-normal">HOT</sup></strong>
+
+                    </div>
+                    <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
+                      <div class="bg-gray-100 roundy px-4 py-1 mr-0 mr-lg-3 mt-2 mt-lg-0 text-dark exclode">后端开发</div>
+
+                    </div>
+                  </div></a></div>
+              <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
+                  <div class="row">
+                    <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">5<sup class="smaller text-gray font-weight-normal">HOT</sup></strong>
+
+                    </div>
+                    <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
+                      <div class="bg-gray-100 roundy px-4 py-1 mr-0 mr-lg-3 mt-2 mt-lg-0 text-dark exclode">软件开发</div>
+
+                    </div>
+                  </div></a></div>
+              <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
+                  <div class="row">
+                    <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">6<sup class="smaller text-gray font-weight-normal">HOT</sup></strong>
+
+                    </div>
+                    <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
+                      <div class="bg-gray-100 roundy px-4 py-1 mr-0 mr-lg-3 mt-2 mt-lg-0 text-dark exclode">运维工程师</div>
+
+                    </div>
+                  </div></a></div>
+              <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
+                  <div class="row">
+                    <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">7<sup class="smaller text-gray font-weight-normal">HOT</sup></strong>
+
+                    </div>
+                    <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
+                      <div class="bg-gray-100 roundy px-4 py-1 mr-0 mr-lg-3 mt-2 mt-lg-0 text-dark exclode">软件架构师</div>
+
+                    </div>
+                  </div></a></div>
+
+
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-lg-4">
+
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <h2 class="h6 text-uppercase mb-0"></h2>
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-holder">
+{#                      <canvas id="doughnutChartExample"></canvas>#}
+                        <div id="container5" ></div>
+                            <script>
+                                // JS 代码
+                            Highcharts.chart('container5', {
+                                    chart: {
+                                            plotBackgroundColor: null,
+                                            plotBorderWidth: null,
+                                            plotShadow: false,
+                                            type: 'pie'
+                                    },
+                                    title: {
+                                            text: '企业学历需求'
+                                    },
+                                    tooltip: {
+                                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                    },
+                                    plotOptions: {
+                                            pie: {
+                                                    allowPointSelect: true,
+                                                    cursor: 'pointer',
+                                                    dataLabels: {
+                                                            enabled: false
+                                                    },
+                                                    showInLegend: true
+                                            }
+                                    },
+                                    series: [{
+                                            name: 'Brands',
+                                            colorByPoint: true,
+                                            data: [{
+                                                    name: '中技',
+                                                    y: {{ ts_school }},
+
+                                            }, {
+                                                    name: '高中',
+                                                    y: {{ high_school }}
+                                            }, {
+                                                    name: '大专',
+                                                    y: {{ Junior_college }}
+                                            }, {
+                                                    name: '本科',
+                                                    y: {{ Undergraduate }}
+                                            },{
+                                                    name: '硕士',
+                                                    y: {{ master }}
+                                            },{
+                                                    name: '经验不限',
+                                                    y: {{ no_exp }}
+                                            },
+                                            ]
+                                    }]
+                            });
+                            </script>
+                    </div>
+                  </div>
+                </div>
+                  <div><a  class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
+                  <div class="row">
+                    <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0"><sup class="smaller text-gray font-weight-normal"></sup></strong>
+
+                    </div>
+                    <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
+
+
+                    </div>
+                  </div></a></div>
+              </div>
+
+
+
+              <div class="col-lg-8">
+                <div class="card">
+                  <div class="card-header">
+                    <h2 class="h6 mb-0 text-uppercase"></h2>
+                  </div>
+                  <div class="card-body">
+
+                    <div class="chart-holder mt-5 mb-5">
+{#                        <canvas id="barChartExample1"></canvas>#}
+                        <div id="container6" style="max-width:800px;height:400px"></div>
+                 <script>
+                                // JS 代码
+                            Highcharts.chart('container6', {
+                            series: [{
+                                type: 'venn',
+                                name: '',
+                                data: [{
+                                    sets: ['天河区'],
+                                    value: {{a1}} ,
+                                    name:'天河区'
+                                }, {
+                                    sets: ['番禺区'],
+                                    value: {{a2}}
+                                }, {
+                                    sets: ['白云区'],
+                                    value: {{a3}}
+                                }, {
+                                    sets: ['黄浦区'],
+                                    value: {{a4}}
+
+                                }, {
+                                    sets: ['花都区'],
+                                    value: {{a5}}
+
+                                }, {
+                                    sets: ['从化区'],
+                                    value: {{a6}}
+
+                                }, {
+                                    sets: ['增城区'],
+                                    value: {{a7}}
+
+                                },{
+                                    sets: ['海珠区'],
+                                    value: {{a8}}
+
+                                },{
+                                    sets: ['越秀区'],
+                                    value: {{a9}}
+
+                                },{
+                                    sets: ['荔湾区'],
+                                    value: {{a10}}
+
+                                },{
+                                    sets: ['南沙区'],
+                                    value: {{a11}}
+
+                                }
+                                ]
+                            }],
+                            title: {
+                                text: '广州市各区岗位供求情况'
+                            }
+                        });
+
+                            </script>
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+{% endblock container %}
+
+{% block js %}
+    <script src="{% static 'analyse/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/chart.js/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/popper.js/umd/popper.min.js' %}"> </script>
+    <script src="{% static 'analyse/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'analyse/vendor/jquery.cookie/jquery.cookie.js' %}"> </script>
+    <script src="{% static 'analyse/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'analyse/js/js.cookie.min.js' %}"></script>
+    <script src="{% static 'analyse/js/charts-home.js' %}"></script>
+    <script src="{% static 'analyse/js/front.js' %}"></script>
+    <script src="{% static 'analyse/js/charts-custom.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block container %}
+<style>
+p{
+    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+}
+</style>
+        <div class="container-fluid px-xl-5">
+          <section class="py-5">
+            <div class="row">
+			<!-- Inline Form-->
+
+			  </div>
+
+                {% for list in resource_list %}
+			        <div class="col-lg-12"><a href="{{ list.Lurl }}" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
+                      <div class="row">
+                        <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">{{ list.Lid }}</strong><img  class="rounded-circle mx-3 my-2 my-lg-0">
+                          <h6 class="mb-0">{{ list.Lname }}</h6>
+                        </div>
+                        <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
+
+                          <p class="mb-0 mt-3 mt-lg-0">{{ list.Ldetail }}</p>
+                        </div>
+                      </div></a></div>
+                {% endfor %}
+          </section>
+
+           <nav class="pag" aria-label="..." >
+
+			  <ul class="pagination justify-content-center">
+
+                    {% if page_obj.has_previous %}
+                        <li class="page-item disabled">
+                        <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number.querystring }}" >Previous</a>
+                        </li>
+
+
+                    {% endif %}
+
+                    {% for page in page_obj.pages %}
+                        {% if page %}
+                            {% ifequal page page_object.number %}
+                               <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="#">{{ page }}</a>
+                               </li>
+                            {% else %}
+
+                               <li class="page-item"><a class="page-link" href="?{{ page.querystring }}">{{ page }}</a></li>
+                            {% endifequal %}
+                        {% else %}
+                        ...
+                        {% endif %}
+                    {% endfor %}
+
+
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                      <a class="page-link" href="?{{ page_obj.next_page_number.querystring }}">Next</a>
+                    </li>
+                    {% else %}
+
+                    {% endif %}
+
+			  </ul>
+			</nav>
+
+
+        </div>
+
+{% endblock container %}

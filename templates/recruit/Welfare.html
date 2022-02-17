@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<link rel="icon" href="https://static.jianshukeji.com/hcode/images/favicon.ico">
+        <style>
+            /* css 代码  */
+        </style>
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/wordcloud.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+{% endblock header %}
+
+{% block container %}
+    <div class="page-holder w-100 d-flex flex-wrap">
+        <div class="container-fluid px-xl-5">
+          <section class="py-5">
+            <div class="row mb-4">
+              <div class="col-lg-12 mb-4 mb-lg-0">
+                <div class="card">
+                  <div class="card-header">
+                    <h2 class="h6 text-uppercase mb-0">1</h2>
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-holder mt-5 mb-5">
+                      <div id="container"></div>
+                        <script>
+                            var text = '{{ jobs }}' // 注意：这里的代码只是对上面的句子进行分词并计算权重（重复次数）并构建词云图需要的数据，其中 arr.find 和
+                            // 	reduce 函数可能在低版本 IE 中无法使用（属于ES6新增的函数），如果不能正常使用（对应的函数有报错），请自行加相应的 Polyfill
+                            //  array.find 的 ployfill 参见：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find#Polyfill
+                            // 	array.reduce 的 ployfill ：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#Polyfill
+                            var data = text.split(/[,\. ]+/g)
+                            .reduce(function (arr, word) {
+                                var obj = arr.find(function (obj) {
+                                    return obj.name === word;
+                                });
+                                if (obj) {
+                                    obj.weight += 1;
+                                } else {
+                                    obj = {
+                                        name: word,
+                                        weight: 1
+                                    };
+                                    arr.push(obj);
+                                }
+                                return arr;
+                            }, []);
+                            Highcharts.chart('container', {
+                                series: [{
+                                    type: 'wordcloud',
+                                    data: data
+                                }],
+                                title: {
+                                    text: '公司福利词云'
+                                }
+                            });
+                        </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </section>
+          <section >
+            <div class="row mb-4">
+              <div class="col-lg-12 mb-4 mb-lg-0">
+                <div class="card">
+                  <div class="card-header">
+                    <h2 class="h6 text-uppercase mb-0">1</h2>
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-holder mt-5 mb-5">
+                      <div id="container2"></div>
+                        <script>
+                            var text = '{{ welfare_list }}'  // 注意：这里的代码只是对上面的句子进行分词并计算权重（重复次数）并构建词云图需要的数据，其中 arr.find 和
+                            // 	reduce 函数可能在低版本 IE 中无法使用（属于ES6新增的函数），如果不能正常使用（对应的函数有报错），请自行加相应的 Polyfill
+                            //  array.find 的 ployfill 参见：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find#Polyfill
+                            // 	array.reduce 的 ployfill ：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#Polyfill
+                            var data = text.split(/[,\. ]+/g)
+                            .reduce(function (arr, word) {
+                                var obj = arr.find(function (obj) {
+                                    return obj.name === word;
+                                });
+                                if (obj) {
+                                    obj.weight += 1;
+                                } else {
+                                    obj = {
+                                        name: word,
+                                        weight: 1
+                                    };
+                                    arr.push(obj);
+                                }
+                                return arr;
+                            }, []);
+                            Highcharts.chart('container2', {
+                                series: [{
+                                    type: 'wordcloud',
+                                    data: data
+                                }],
+                                title: {
+                                    text: '词云图'
+                                }
+                            });
+                        </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </section>
+
+
+
+        </div>
+
+      </div>
+
+
+{% endblock container %}

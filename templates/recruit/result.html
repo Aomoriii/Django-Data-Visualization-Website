@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block container %}
+
+<style>
+.btn {
+    border-top-left-radius: 0;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 0;
+}
+.btn-info {
+
+    background-color: #4680ff;;
+    border-color: #17a2b8;
+}
+.table td, .table th {
+    padding: .15rem;
+
+}
+
+.pt-5, .py-5 {
+    padding-top: 1rem!important;
+}
+
+</style>
+
+    <div class="page-holder w-100 d-flex flex-wrap">
+
+
+        <div class="container-fluid px-xl-5">
+        <div class="input-group col-md-3" style="margin-top:20px;position: center">
+        <input type="text" class="form-control" placeholder="search">
+            <span class="input-group-btn">
+                <button class="btn btn-info btn-search">click</button>
+
+            </span>
+        </div>
+          <section class="py-5">
+
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h6 class="text-uppercase mb-0">Basic Table</h6>
+                  </div>
+                  <div class="card-body">
+                    <table class="table card-text">
+                    {% if error_msg %}
+                        <p>{{ error_msg }}</p>
+                      {% else %}
+                          <thead>
+                            <tr>
+                              <th>岗位</th>
+                              <th>薪资</th>
+                              <th>区域</th>
+                              <th>经验</th>
+                              <th>学历</th>
+                              <th>规模</th>
+                              <th>公司</th>
+                              <th>发布时间</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+
+                          {% for item in contacts %}
+                            <tr>
+                              <th scope="row">{{ item.Rwork }}</th>
+                                 {% if item.Rsalary_l == 0  %}
+                                     <td>{{item.Rsalary_l}}</td>
+                                 {% elif item.Rsalary_l == '面议' %}
+                                     <td>{{item.Rsalary_l}}</td>
+                                 {% else %}
+                                     <td>{{item.Rsalary_l}}-{{ item.Rsalary_r }}</td>
+                                 {% endif %}
+                              <td>{{ item.Cid_id.Cname}}</td>
+                                 {% if item.Rex_l == '0' %}
+                                    <td>{{ item.Rex_l}}</td>
+                                {% else %}
+                                    <td>{{ item.Rex_l }}-{{ item.Rex_r }}年</td>
+                                {% endif %}
+                              <td>{{item.Rdegree}}</td>
+                              <td>{{ item.Rscale_l }}-{{ item.Rscale_r }}人</td>
+                              <td>{{ item.Rcompany }}</td>
+                              <td>{{ item.Rdate }}</td>
+
+                            </tr>
+                          {% empty %}
+                              <div class="no-post">暂时还没有相关数据！</div>
+                          {% endfor %}
+                      {% endif %}
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+          </section>
+          <!-- 分页-->
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock container %}
