@@ -7,3 +7,7 @@ migrations
 recruit/__init__.py
 
 settings.py
+
+static
+
+analyse/static
