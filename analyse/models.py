@@ -9,7 +9,7 @@ class Technology(models.Model):
     class Meta:
         managed = False
         db_table = 'Technology'
-        verbose_name = verbose_name_plural = "技术方向"
+        verbose_name = verbose_name_plural = "技术类型管理"
 
 
 class Direction(models.Model):
@@ -20,7 +20,7 @@ class Direction(models.Model):
     class Meta:
         managed = False
         db_table = 'Direction'
-        verbose_name = verbose_name_plural = "职业方向"
+        verbose_name = verbose_name_plural = "职业管理"
 
 
 class City(models.Model):
@@ -30,7 +30,7 @@ class City(models.Model):
     class Meta:
         managed = False
         db_table = 'City'
-        verbose_name = verbose_name_plural = "城市"
+        verbose_name = verbose_name_plural = "城市管理"
 
 
 class Area(models.Model):
@@ -41,7 +41,7 @@ class Area(models.Model):
     class Meta:
         managed = False
         db_table = 'Area'
-        verbose_name = verbose_name_plural = "行政区"
+        verbose_name = verbose_name_plural = "区域管理"
 
 
 class Recruit(models.Model):
@@ -67,7 +67,7 @@ class Recruit(models.Model):
         managed = False
         db_table = 'Recruit'
         ordering = ['-Rdate']
-        verbose_name = verbose_name_plural = "招聘信息"
+        verbose_name = verbose_name_plural = "招聘信息管理"
 
 
 class Learning(models.Model):
@@ -75,14 +75,14 @@ class Learning(models.Model):
     Ltype = models.CharField(max_length=255, verbose_name='课程类型')
     Lname = models.CharField(max_length=255, verbose_name='课程名称')
     Ldetail = models.CharField(max_length=10000, verbose_name='课程详情')
-    Ldirection = models.ForeignKey(Direction, models.DO_NOTHING, verbose_name='技术方向')
+    # Ldirection = models.ForeignKey(Direction, models.DO_NOTHING, verbose_name='技术方向')
     Lpic = models.CharField(max_length=255)
     Lurl = models.CharField(max_length=500, verbose_name='课程连接')
 
     class Meta:
         managed = False
         db_table = 'Learning'
-        verbose_name = verbose_name_plural = "学习路径"
+        verbose_name = verbose_name_plural = "学习资源管理"
 
     def __str__(self):
         return self.Lname

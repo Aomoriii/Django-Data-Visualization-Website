@@ -19,8 +19,8 @@ class DirectionAdmin(admin.ModelAdmin):
 
 
 class LearningAdmin(admin.ModelAdmin):
-    list_display = ['Lid', 'Ltype', 'Lname', 'Ldetail', 'Ldirection', 'Lurl']
-    fields = ['Lid', 'Ltype', 'Lname', 'Ldetail', 'Ldirection', 'Lurl']
+    list_display = ['Lid', 'Ltype', 'Lname', 'Ldetail', 'Lurl']
+    fields = ['Lid', 'Ltype', 'Lname', 'Ldetail', 'Lpic', 'Lurl']
 
 class AreaAdmin(admin.ModelAdmin):
     list_display = ['Aid', 'Aname', 'Cid_id']
